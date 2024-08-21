@@ -13,4 +13,10 @@ def index(request):
         session_id = request.POST.get('sessionId')
         service_code = request.POST.get('serviceCode')
         phone_number = request.POST.get('phoneNumber')
-        text = request.POST.get('text', '')
+        text = request.POST.get('text', '') # provide a default value of empty string if 'text' is not provided
+
+        #process the ussd request and generate a response based on the text input, we will do this inside of a function called handle_ussd_request
+        response = handle_ussd_request(text)
+
+        # return the generated response as an HTTP response
+        return HttpResponse(response)
