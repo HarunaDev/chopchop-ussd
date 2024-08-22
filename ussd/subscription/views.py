@@ -26,16 +26,16 @@ cart = []
 
 # define a dictionary to store items with their prices
 menu = {
-    "1*1": {"name": "Rice & 1pc Chicken", "price": 500, "quantity": 1},
-    "1*2": {"name": "Spaghetti & 1pc Chicken", "price": 500, "quantity": 1},
-    "1*3": {"name": "Burger Suya", "price": 500, "quantity": 1},
-    "1*4": {"name": "Chicken & Chips", "price": 500, "quantity": 1},
-    "2*1": {"name": "Fruit Smoothie", "price": 700, "quantity": 1},
-    "2*2": {"name": "Yoghurt", "price": 700, "quantity": 1},
-    "2*3": {"name": "Water", "price": 700, "quantity": 1},
-    "3*1": {"name": "Burger Suya & Fruit Smoothie", "price": 700, "quantity": 1},
-    "3*2": {"name": "Rice & 3pcs Chicken", "price": 700, "quantity": 1},
-    "3*3": {"name": "Small Chops & 3pcs Chicken", "price": 700, "quantity": 1},
+    "1*1": {"name": "Rice & 1pc Chicken", "price": 2700, "quantity": 0},
+    "1*2": {"name": "Spaghetti & 1pc Chicken", "price": 2400, "quantity": 0},
+    "1*3": {"name": "Burger Suya", "price": 2000, "quantity": 0},
+    "1*4": {"name": "Chicken & Chips", "price": 2500, "quantity": 0},
+    "2*1": {"name": "Fruit Smoothie", "price": 1500, "quantity": 0},
+    "2*2": {"name": "Yoghurt", "price": 1000, "quantity": 0},
+    "2*3": {"name": "Water", "price": 300, "quantity": 0},
+    "3*1": {"name": "Burger Suya & Fruit Smoothie", "price": 3500, "quantity": 0},
+    "3*2": {"name": "Rice & 3pcs Chicken", "price": 5300, "quantity": 0},
+    "3*3": {"name": "Small Chops & 3pcs Chicken", "price": 4900, "quantity": 0},
 }
 
 
