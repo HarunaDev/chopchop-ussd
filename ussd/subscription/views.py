@@ -93,3 +93,13 @@ CON Select from the special combo options
 4. Main Menu
 {"5. Checkout" if cart else ""}
 '''
+    
+    # if the user selects '4', show option to contact us
+    elif text == "4":
+        return f'''
+CON Contact Us @
+- Call our lines 080800300 090300800
+- Send us a mail chojischops@food.com
+1. Main Menu
+{"2. Checkout" if cart else ""}
+'''
