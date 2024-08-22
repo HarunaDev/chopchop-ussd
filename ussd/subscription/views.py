@@ -20,3 +20,22 @@ def index(request):
 
         # return the generated response as an HTTP response
         return HttpResponse(response)
+    
+cart = []
+
+# function to handle the logi of the ussd request based on the user's input 
+def handle_ussd_request(text):
+    #if no text input(initial request), display the main menu
+    if text == "":
+        response = '''
+Welcome to Choji Food Shop, Select an option to get your meal
+1. Order Food
+2. Order Drinks
+3. Special Combo Menu
+4. Contact us
+'''     
+        # conditionally add checkout if item in cart
+        if cart:
+            response += "\n5. Checkout"
+
+        return response
