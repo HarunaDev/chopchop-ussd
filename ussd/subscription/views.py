@@ -56,18 +56,29 @@ CON Welcome to Choji Food Shop, Select an option to get your meal
     elif text == "1":
         return f'''
 CON Select from the option to order food
-1. Rice & 1pc Chicken
-2. Spagetti & 1pc Chicken
-3. Burger Suya
-4. Chicken & Chips
+1. Rice & 1pc Chicken @2700
+2. Spagetti & 1pc Chicken @2400
+3. Burger Suya @2000
+4. Chicken & Chips @2500
 5. Order Drinks
 6. Main Menu
 {'7. Checkout' if cart else ''}
 '''
     # if the user selects '1*1', show option to continue shopping or checkout
-#     elif text == "1*1":
-#         return f'''
+#   elif text == "1*1":
+#       return f'''
 # CON choose an option
 # 1. Order more
 # 2. Checkout
 # '''
+
+    # if the user selects '2', show option to order drinks
+    elif text == "2":
+        return f'''
+CON Select from the drinks options
+1. Fruit Smoothie
+2. Yoghurt
+3. Water
+4. Main menu
+{'5. Checkout' if cart else ''}
+'''
