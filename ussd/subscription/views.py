@@ -49,7 +49,7 @@ CON Welcome to Choji Food Shop, Select an option to get your meal
 2. Order Drinks
 3. Special Combo Menu
 4. Contact Us
-{'5. Checkout' if cart else ''}
+{"5. Checkout" if cart else ''}
 '''     
         
     # if the user selects '1', show Order Food options
@@ -62,7 +62,7 @@ CON Select from the option to order food
 4. Chicken & Chips @2500
 5. Order Drinks
 6. Main Menu
-{'7. Checkout' if cart else ''}
+{"7. Checkout" if cart else ''}
 '''
     # if the user selects '1*1', show option to continue shopping or checkout
 #   elif text == "1*1":
@@ -76,9 +76,20 @@ CON Select from the option to order food
     elif text == "2":
         return f'''
 CON Select from the drinks options
-1. Fruit Smoothie
-2. Yoghurt
-3. Water
+1. Fruit Smoothie @1500
+2. Yoghurt @1000
+3. Water @300
 4. Main menu
-{'5. Checkout' if cart else ''}
+{"5. Checkout" if cart else ''}
+'''
+    
+    # if the user selects '3', show option to special combo
+    elif text == "3":
+        return f'''
+CON Select from the special combo options 
+1. Burger Suya & Fruit Smoothie @3500
+2. Rice & 3pcs Chicken @5300
+3. Small Chops & 3pcs Chicken @4900
+4. Main Menu
+{"5. Checkout" if cart else ""}
 '''
