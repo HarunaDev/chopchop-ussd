@@ -20,22 +20,54 @@ def index(request):
 
         # return the generated response as an HTTP response
         return HttpResponse(response)
-    
+
+# initialize a cart to keep track of selected orders 
 cart = []
 
-# function to handle the logi of the ussd request based on the user's input 
+# define a dictionary to store items with their prices
+menu = {
+    "1*1": {"name": "Rice & 1pc Chicken", "price": 500, "quantity": 1},
+    "1*2": {"name": "Spaghetti & 1pc Chicken", "price": 500, "quantity": 1},
+    "1*3": {"name": "Burger Suya", "price": 500, "quantity": 1},
+    "1*4": {"name": "Chicken & Chips", "price": 500, "quantity": 1},
+    "2*1": {"name": "Fruit Smoothie", "price": 700, "quantity": 1},
+    "2*2": {"name": "Yoghurt", "price": 700, "quantity": 1},
+    "2*3": {"name": "Water", "price": 700, "quantity": 1},
+    "3*1": {"name": "Burger Suya & Fruit Smoothie", "price": 700, "quantity": 1},
+    "3*2": {"name": "Rice & 3pcs Chicken", "price": 700, "quantity": 1},
+    "3*3": {"name": "Small Chops & 3pcs Chicken", "price": 700, "quantity": 1},
+}
+
+
+# function to handle the logic of the ussd request based on the user's input 
 def handle_ussd_request(text):
     #if no text input(initial request), display the main menu
     if text == "":
-        response = '''
-Welcome to Choji Food Shop, Select an option to get your meal
+        return f'''
+CON Welcome to Choji Food Shop, Select an option to get your meal
 1. Order Food
 2. Order Drinks
 3. Special Combo Menu
-4. Contact us
+4. Contact Us
+{'5. Checkout' if cart else ''}
 '''     
-        # conditionally add checkout if item in cart
-        if cart:
-            response += "\n5. Checkout"
-
-        return response
+        
+    # if the user selects '1', show Order Food options
+    elif text == "1":
+        return f'''
+CON Select from the option to order food
+1. Rice & 1pc Chicken
+2. Spagetti & 1pc Chicken
+3. Burger Suya
+4. Chicken & Chips
+5. Order Drinks
+6. Main Menu
+{'7. Checkout' if cart else ''}
+'''
+    # if the user selects '1*1', show option to continue shopping or checkout
+#     elif text == "1*1":
+#         return f'''
+# CON choose an option
+# 1. Order more
+# 2. Checkout
+# '''
