@@ -4,6 +4,16 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+# test view to run the logic
+@csrf_exempt
+def test_ussd(request):
+    text = request.GET.get('text', '')
+
+    # get the response from the handle_ussd_request
+    response = handle_ussd_request(text)
+
+    return HttpResponse(response)
+
 # disable CSRF protection for this view to allow USSD requests without CSRF token verification
 @csrf_exempt
 def index(request):
@@ -65,12 +75,12 @@ CON Select from the option to order food
 {"7. Checkout" if cart else ''}
 '''
     # if the user selects '1*1', show option to continue shopping or checkout
-#   elif text == "1*1":
-#       return f'''
-# CON choose an option
-# 1. Order more
-# 2. Checkout
-# '''
+    elif text == "1*1":
+        return f'''
+CON choose an option
+1. Order more
+2. Checkout
+'''
 
     # if the user selects '2', show option to order drinks
     elif text == "2":
