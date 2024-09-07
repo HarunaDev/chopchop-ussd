@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from django.http import HttpResponse
+from django.shortcuts import render # type: ignore
+from django.views.decorators.csrf import csrf_exempt # type: ignore
+from django.http import HttpResponse # type: ignore
 
 # Create your views here.
 
@@ -10,9 +10,9 @@ def index(request):
     # check if the request method is POST
     if request.method == 'POST':
         # get the neccesary parameters from the POST request
-        session_id = request.POST.get('sessionId')
-        service_code = request.POST.get('serviceCode')
-        phone_number = request.POST.get('phoneNumber')
+        session_id = request.POST.get('sessionId', None)
+        serviceCode = request.POST.get('serviceCode', None)
+        phone_number = request.POST.get('phoneNumber', None)
         text = request.POST.get('text', '') # provide a default value of empty string if 'text' is not provided
 
         #process the ussd request and generate a response based on the text input, we will do this inside of a function called handle_ussd_request
@@ -20,7 +20,8 @@ def index(request):
 
         # return the generated response as an HTTP response
         return HttpResponse(response)
-
+    else:
+        return HttpResponse("Invalid request method", status=405)
 # initialize a cart to keep track of selected orders 
 cart = []
 
